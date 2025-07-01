@@ -1,3 +1,20 @@
+import csv
+import os
+
+# Leer gastos desde archivo CSV si existe
+gastos = {}
+
+if os.path.exists("gastos.csv"):
+    with open("gastos.csv", mode="r", newline="") as archivo:
+        lector = csv.reader(archivo)
+        for fila in lector:
+            if len(fila) == 2:
+                categoria, monto = fila
+                try:
+                    gastos[categoria] = float(monto)
+                except ValueError:
+                    pass
+
 # main.py
  
 def analizar_gastos(gastos):
