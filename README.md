@@ -27,5 +27,19 @@ Permite ingresar categorías y montos, guarda los datos en un archivo CSV y mues
 1. Clonar o descargar este repositorio.
 2. Ejecutar el script principal:
 
-```bash
 python3 main.py
+
+---
+
+## Contribuciones
+
+Este es un proyecto personal para aprendizaje y desarrollo.  
+Para sugerencias o mejoras, podés abrir un issue o contactarme.
+
+---
+
+## Autor
+
+Jorge Bianchi ([@harikirtandas](https://github.com/harikirtandas))
+
+```bash
