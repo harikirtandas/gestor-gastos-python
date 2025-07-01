@@ -3,7 +3,6 @@ import os
 
 # Leer gastos desde archivo CSV si existe
 gastos = {}
-
 if os.path.exists("gastos.csv"):
     with open("gastos.csv", mode="r", newline="") as archivo:
         lector = csv.reader(archivo)
@@ -15,8 +14,7 @@ if os.path.exists("gastos.csv"):
                 except ValueError:
                     pass
 
-# main.py
- 
+# Función para analizar gastos
 def analizar_gastos(gastos):
     total = 0
     print("Gastos:")
@@ -31,17 +29,7 @@ def analizar_gastos(gastos):
         print("✅ Bien, estás dentro del presupuesto.")
 
 
-# Diccionario con gastos de ejemplo
-gastos = {
-    "alquiler": 75000,
-    "comida": 22000,
-    "internet": 8000,
-    "ropa": 15000
-}
-
-
-
-# Pedir al usuario que ingrese categorias y montos
+# Menú de usuario
 while True:
     print('\n--- MENÚ ---')
     print('1. Ingresar gasto.')
@@ -62,8 +50,15 @@ while True:
                     break
                 except ValueError:
                     print('Ingresá un monto válido.')
+                    
             gastos[categoria] = monto
+            
+            # Guardar en el archivo CSV
+            with open("gastos.csv", mode="a", newline="") as archivo:
+                escritor = csv.writer(archivo)
+                escritor.writerow([categoria, monto])
+                
             analizar_gastos(gastos)
         
-# Llamar a la función
+# Informe final
 analizar_gastos(gastos)
